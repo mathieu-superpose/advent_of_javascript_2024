@@ -12,13 +12,13 @@ Every day until christmas, an email is sent providing user stories with three le
 Create a password input field. Clicking on the eyeball will toggle the password visibility on and off.
 
 Hidden state
-![hidden](./public/img/day01_hidden.jpg)
+![hidden](./public/img/day_01/day01_hidden.jpg)
 
 Visible state:
-![visible](./public/img/day01_visible.jpg)
+![visible](./public/img/day_01/day01_visible.jpg)
 
 Animation:
-![animation](./public/img/day01_animation.gif)
+![animation](./public/img/day_01/day01_animation.gif)
 
 User stories:
 
