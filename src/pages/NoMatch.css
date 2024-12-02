@@ -1,0 +1,7 @@
+.NoMatch {
+  min-height: 100vh;
+
+  & .Btn {
+    background: red;
+  }
+}
