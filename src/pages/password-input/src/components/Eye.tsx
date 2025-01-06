@@ -9,12 +9,14 @@ function Eye({ open, color }: { open: boolean; color: string }) {
       className="eye"
     >
       <path
+        className="bottomeyelid"
         d="M105 71C105 71 82.6142 102 55 102C27.3858 102 5 71 5 71"
         stroke={color}
         stroke-width="10"
         stroke-linecap="round"
       />
       <path
+        className="pupill"
         d="M70 70C70 78.2843 63.2843 85 55 85C46.7157 85 40 78.2843 40 70C40 61.7157 46.7157 55 55 55C63.2843 55 70 61.7157 70 70Z"
         fill={color}
       />

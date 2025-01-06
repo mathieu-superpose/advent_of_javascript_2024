@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import "./TogglePasswordInput.css"
 
 import Lock from "./Lock"
@@ -5,18 +7,25 @@ import Eye from "./Eye"
 import Background from "./Background"
 
 function TogglePasswordInput() {
+  const [open, setOpen] = useState(true)
+
   return (
     <div className="TogglePasswordInput">
       <div className="elements">
-        <Lock color={"#171546"} />
-        <input type="password" className="password" placeholder="password" />
+        <Lock open={open} />
 
-        <button className="toggle">
-          <Eye open={true} color={"#60c6c2"} />
+        <input
+          type={open ? "password" : "text"}
+          className={open ? "password" : "password open"}
+          placeholder="password"
+        />
+
+        <button className="toggle" onClick={() => setOpen(!open)}>
+          <Eye open={open} color={"#60c6c2"} />
         </button>
       </div>
 
-      <Background />
+      <Background open={open} />
     </div>
   )
 }
