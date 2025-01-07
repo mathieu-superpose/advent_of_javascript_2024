@@ -1,0 +1,55 @@
+.CustomDropdown {
+  --input-background-color: #f3f3f3;
+  --input-border-color: #dadada;
+  --selected-blue-color: #1aaaf2;
+
+  width: min(400px, 90vw);
+  height: 60px;
+
+  background: var(--input-background-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: 10px;
+
+  font-family: Avenir;
+
+  position: relative;
+
+  & .label {
+    width: 210px;
+    position: absolute;
+    top: 15px;
+    left: 60px;
+
+    color: black;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+
+    transition: transform 0.3s;
+  }
+
+  .text-input:focus ~ .label {
+    transform: translateX(-60px) translateY(-40px);
+    color: var(--input-background-color);
+  }
+
+  & .text-input {
+    width: 70%;
+    height: 30px;
+    position: absolute;
+    top: 15px;
+    left: 60px;
+    background: none;
+    outline: none;
+    border: none;
+  }
+
+  .dropdown-arrow {
+    position: absolute;
+    right: 20px;
+    height: 20px;
+    top: 20px;
+  }
+}
