@@ -1,10 +1,11 @@
 .CustomDropdown {
   --input-background-color: #f3f3f3;
   --input-border-color: #dadada;
+  --input-line-color: #b1abab;
   --selected-blue-color: #1aaaf2;
 
   width: min(400px, 90vw);
-  height: 60px;
+  height: 70px;
 
   background: var(--input-background-color);
   border: 1px solid var(--input-border-color);
@@ -35,6 +36,10 @@
     color: var(--input-background-color);
   }
 
+  .text-input:focus {
+    border-bottom: 1px solid var(--input-line-color);
+  }
+
   & .text-input {
     width: 70%;
     height: 30px;
@@ -46,10 +51,32 @@
     border: none;
   }
 
+  & .text-input.hidden {
+    display: none;
+  }
+
   .dropdown-arrow {
     position: absolute;
     right: 20px;
     height: 20px;
     top: 20px;
+  }
+
+  & .MovieList {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background: var(--input-background-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+  }
+
+  & .Miniature,
+  & .ActiveMiniature {
+    background: red;
+
+    width: 300px;
+    display: grid;
   }
 }
