@@ -31,7 +31,8 @@
     transition: transform 0.3s;
   }
 
-  .text-input:focus ~ .label {
+  .text-input:focus ~ .label,
+  .label.active {
     transform: translateX(-60px) translateY(-40px);
     color: var(--input-background-color);
   }
@@ -67,16 +68,23 @@
     top: 75px;
     left: 0;
     width: 100%;
-    background: var(--input-background-color);
-    border: 1px solid var(--input-border-color);
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: blue;
   }
 
   & .Miniature,
   & .ActiveMiniature {
     background: red;
 
-    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 4fr;
+
+    /* width: min(400px, 90vw); */
+    /* height: 70px; */
+    padding: 20px;
     display: grid;
   }
 }

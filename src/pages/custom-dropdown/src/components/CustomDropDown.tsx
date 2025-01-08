@@ -1,12 +1,13 @@
-import { useMemo, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 import "./CustomDropdown.css"
 
+import MovieList from "./MovieList"
+import Miniature from "./Miniature"
+
 import dropdownArrow from "../img/dropdown-arrow.svg"
 
-import filmData from "../data/top-100-christmas-movies.json"
-
-interface IMovie {
+export interface IMovie {
   Description: string
   Director: string
   Duration: string
@@ -20,76 +21,6 @@ interface IMovie {
   Title: string
   Votes: string
   Year: string
-}
-
-function MovieList({
-  query,
-  handleSelectMovie,
-}: {
-  query: string
-  handleSelectMovie: (movie: IMovie) => void
-}) {
-  if (query === "") {
-    return null
-  }
-
-  const filteredMovies = useMemo(() => {
-    return filmData.filter((movie) =>
-      movie.Title.toLowerCase().includes(query.toLowerCase())
-    )
-  }, [query])
-
-  return (
-    <ul className="MovieList">
-      {filteredMovies.map((movie) => (
-        <ActiveMiniature movie={movie} handleSelectMovie={handleSelectMovie} />
-      ))}
-    </ul>
-  )
-}
-
-function Miniature({
-  movie,
-  unselectMovie,
-}: {
-  movie: IMovie
-  unselectMovie: () => void
-}) {
-  const formatedTitle = (title: string) => {
-    return title.split(". ")[1] || ""
-  }
-
-  return (
-    <div className="Miniature" onClick={unselectMovie}>
-      <img className="poster" src={movie.Image} alt={movie["Image Alt"]} />
-      <p className="title">{formatedTitle(movie.Title)}</p>
-      <p className="year">{movie.Year}</p>
-    </div>
-  )
-}
-
-function ActiveMiniature({
-  movie,
-  handleSelectMovie,
-}: {
-  movie: IMovie
-  handleSelectMovie: (movie: IMovie) => void
-}) {
-  const formatedTitle = (title: string) => {
-    return title.split(". ")[1] || ""
-  }
-
-  return (
-    <li
-      className="ActiveMiniature"
-      key={movie["Movie Link"]}
-      onClick={() => handleSelectMovie(movie)}
-    >
-      <img className="poster" src={movie.Image} alt={movie["Image Alt"]} />
-      <p className="title">{formatedTitle(movie.Title)}</p>
-      <p className="year">{movie.Year}</p>
-    </li>
-  )
 }
 
 function CustomDropdown() {
@@ -128,9 +59,16 @@ function CustomDropdown() {
         onChange={updateQuery}
       />
       {selectedMovie && (
-        <Miniature movie={selectedMovie} unselectMovie={unselectMovie} />
+        <Miniature
+          active={false}
+          movie={selectedMovie}
+          movieHandler={unselectMovie}
+        />
       )}
-      <label className="label" onClick={focusOnInput}>
+      <label
+        className={selectedMovie ? "label active" : "label"}
+        onClick={focusOnInput}
+      >
         Your Favorite Holiday Movie
       </label>
       <img
