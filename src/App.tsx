@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home.tsx"
 import PasswordInput from "./pages/password-input/index.tsx"
 
+import ResizableTextAreaPage from "./pages/resizable-text-area/ResizableTextAreaPage.tsx"
+
 import NoMatch from "./pages/NoMatch"
 
 const App = () => {
@@ -12,6 +14,11 @@ const App = () => {
         <Route path="/" element={<Home />} />
 
         <Route path="/password-input" element={<PasswordInput />} />
+
+        <Route
+          path="/resizable-text-area"
+          element={<ResizableTextAreaPage />}
+        />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
