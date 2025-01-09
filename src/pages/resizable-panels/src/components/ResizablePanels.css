@@ -1,0 +1,49 @@
+.ResizablePanels {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 600px;
+  height: 400px;
+
+  background: purple;
+
+  display: grid;
+
+  grid-template-areas:
+    "top top top"
+    "hor hor hor"
+    "left vert right";
+
+  grid-template-columns: 298px 4px 298px;
+  grid-template-rows: 198px 4px 198px;
+
+  & .top {
+    grid-area: top;
+    background: red;
+  }
+
+  & .horizontal {
+    grid-area: hor;
+    display: grid;
+    background: black;
+    cursor: row-resize;
+  }
+
+  & .left {
+    grid-area: left;
+    background: yellow;
+  }
+
+  & .vertical {
+    grid-area: vert;
+    background: black;
+    cursor: col-resize;
+  }
+
+  & .right {
+    grid-area: right;
+    background: blue;
+  }
+}
