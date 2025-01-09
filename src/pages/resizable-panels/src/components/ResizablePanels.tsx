@@ -11,9 +11,6 @@ function ResizablePanels() {
   const rightRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    let horizontalStart = 0
-    let verticalStart = 0
-
     if (
       !containerRef.current ||
       !topRef.current ||
@@ -29,7 +26,6 @@ function ResizablePanels() {
     let leftPosition = containerRef.current?.getBoundingClientRect().left
 
     const onMouseDownHorizontalResize = (e: MouseEvent) => {
-      verticalStart = e.clientY
       window.addEventListener("mousemove", verticalResizing)
       window.addEventListener("mouseup", onMouseUpHorizontalResize)
     }
@@ -58,7 +54,6 @@ function ResizablePanels() {
     }
 
     const onMouseDownVerticalResize = (e: MouseEvent) => {
-      horizontalStart = e.clientX
       window.addEventListener("mousemove", horizontalResizing)
       window.addEventListener("mouseup", onMouseUpVerticalResize)
     }
