@@ -4,6 +4,7 @@ import Home from "./pages/Home.tsx"
 import PasswordInput from "./pages/password-input/index.tsx"
 
 import ResizableTextAreaPage from "./pages/resizable-text-area/ResizableTextAreaPage.tsx"
+import ResizablePanelsPage from "./pages/resizable-panels/ResizablePanelsPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -19,6 +20,7 @@ const App = () => {
           path="/resizable-text-area"
           element={<ResizableTextAreaPage />}
         />
+        <Route path="/resizable-panels" element={<ResizablePanelsPage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
