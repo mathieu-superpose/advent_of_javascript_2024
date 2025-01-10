@@ -6,6 +6,7 @@ import PasswordInput from "./pages/password-input/index.tsx"
 import ResizableTextAreaPage from "./pages/resizable-text-area/ResizableTextAreaPage.tsx"
 import ResizablePanelsPage from "./pages/resizable-panels/ResizablePanelsPage.tsx"
 import CharacterCounterPage from "./pages/character-counter/CharacterCounterPage.tsx"
+import CopyToClipboardPage from "./pages/copy-to-clipboard/CopyToClipboardPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -23,6 +24,7 @@ const App = () => {
         />
         <Route path="/resizable-panels" element={<ResizablePanelsPage />} />
         <Route path="/character-counter" element={<CharacterCounterPage />} />
+        <Route path="/copy-to-clipboard" element={<CopyToClipboardPage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
