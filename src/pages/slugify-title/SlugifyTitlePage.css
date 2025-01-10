@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.SlugifyTitlePage {
+  height: 100vh;
+  width: 100%;
+
+  background: #698662;
+  position: relative;
+
+  font-family: "Inter", serif;
+
+  & .cover {
+    height: 60vh;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & .Slugifier {
+    width: min(400px, 90vw);
+
+    position: absolute;
+    top: 40vh;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #ededed;
+    padding: 10px 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+    border: 3px solid #0015ff;
+
+    & .label {
+      font-size: 10px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    & .title {
+      min-width: 150px;
+      font-size: 14px;
+      font-weight: regular;
+      border: none;
+      background: none;
+      color: #555;
+
+      &::placeholder {
+        color: #555;
+        opacity: 1; /* Firefox */
+      }
+    }
+
+    & .title:hover,
+    & .title:focus {
+      outline: none;
+      border-bottom: 1px solid #cfcece;
+    }
+
+    & .slug {
+      font-size: 14px;
+      font-weight: regular;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateY(calc(100% + 5px));
+    }
+  }
+}
