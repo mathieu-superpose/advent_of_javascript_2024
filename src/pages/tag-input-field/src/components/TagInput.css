@@ -1,0 +1,68 @@
+.TagInput {
+  min-height: 50px;
+  min-width: 300px;
+  padding: 20px 10px;
+  background: #1e1e1e;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-family: Inter, serif;
+
+  border-radius: 10px;
+
+  & .tagList {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 200px;
+    gap: 5px;
+    list-style: none;
+
+    & .tag {
+      padding: 2px 7px;
+      background: none;
+      display: flex;
+      align-items: center;
+
+      color: #fff;
+      border: 1px solid #fff;
+      border-radius: 30px;
+
+      & .content {
+        font-size: 12px;
+        line-height: 1;
+      }
+
+      & .removeBtn {
+        background: none;
+        border: none;
+        outline: none;
+        color: #6b6b6b;
+        font-size: 14px;
+        margin: 0;
+        line-height: 0.8;
+        width: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transform: translate(3px, -1px);
+
+        &:hover {
+          color: #ff0000;
+        }
+      }
+    }
+  }
+
+  & .input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 13px;
+  }
+}
