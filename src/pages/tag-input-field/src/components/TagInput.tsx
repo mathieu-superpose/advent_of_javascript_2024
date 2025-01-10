@@ -42,7 +42,7 @@ function TagInput() {
     if (end[0] === ",") {
       const content = value.slice(0, value.length - 2).trim()
 
-      if(!content) {
+      if (!content) {
         return
       }
 
@@ -55,6 +55,21 @@ function TagInput() {
       const id = newId(content)
 
       setTags([...tags, { content, id }])
+    }
+  }
+
+  const removeLastTag = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (inputRef?.current?.value) {
+      return
+    }
+    if (e.key === "Delete" || e.key === "Backspace") {
+      if (tags.length === 0) {
+        return
+      }
+      const lastTag = tags[tags.length - 1]
+      if (lastTag) {
+        removeTag(lastTag.id)
+      }
     }
   }
 
@@ -73,6 +88,7 @@ function TagInput() {
         type="text"
         placeholder="new tag after comma"
         onChange={updateTags}
+        onKeyDown={(e) => removeLastTag(e)}
       />
     </div>
   )
