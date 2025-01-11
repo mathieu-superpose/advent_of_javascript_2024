@@ -1,0 +1,18 @@
+.DigitalClockPage {
+  height: 100vh;
+  width: 100%;
+  background: #698662;
+  .cover {
+    height: 50vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & .Desk {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

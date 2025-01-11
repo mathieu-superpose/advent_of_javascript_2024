@@ -9,6 +9,7 @@ import CharacterCounterPage from "./pages/character-counter/CharacterCounterPage
 import CopyToClipboardPage from "./pages/copy-to-clipboard/CopyToClipboardPage.tsx"
 import SlugifyTitlePage from "./pages/slugify-title/SlugifyTitlePage.tsx"
 import TagInputFieldPage from "./pages/tag-input-field/TagInputFieldPage.tsx"
+import DigitalClockPage from "./pages/digital-clock/DigitalClockPage.tsx"
 import FloatingActionButtonPage from "./pages/floating-action-button/FloatingActionButtonPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/copy-to-clipboard" element={<CopyToClipboardPage />} />
         <Route path="/slugify-title" element={<SlugifyTitlePage />} />
         <Route path="/tag-input-field" element={<TagInputFieldPage />} />
+        <Route path="digital-clock" element={<DigitalClockPage />} />
         <Route
           path="/floating-action-button"
           element={<FloatingActionButtonPage />}
