@@ -1,0 +1,104 @@
+.FloatingActionButton {
+  width: 80px;
+  height: 80px;
+
+  & .mainBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background: #0fff2f;
+
+    border: none;
+    outline: none;
+
+    transition: transform 0.2s ease-in-out;
+
+    z-index: 10;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(0.98);
+    }
+
+    &:active {
+      cursor: pointer;
+      transform: scale(0.96);
+    }
+
+    & img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  & .btnList {
+    list-style: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    & .item {
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      & button {
+        height: 100%;
+        width: 100%;
+        background: #3f3f3f;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      transition: transform 0.2s ease-in-out;
+    }
+
+    & .open:nth-child(1) {
+      transform: rotate(80deg) translateX(-90px) rotate(-80deg);
+    }
+
+    & .open:nth-child(2) {
+      transform: rotate(60deg) translateX(-90px) rotate(-60deg);
+    }
+
+    & .open:nth-child(3) {
+      transform: rotate(40deg) translateX(-90px) rotate(-40deg);
+    }
+
+    & .open:nth-child(4) {
+      transform: rotate(20deg) translateX(-90px) rotate(-20deg);
+    }
+
+    & .open:nth-child(5) {
+      transform: translateX(-90px);
+    }
+  }
+}
+
+/* 
+Green - #0FFF2F
+Black - #000000
+Gray - #3f3f3f
+
+Megaphone and X - 60 x 60
+Social Media Icons - 24 x 24
+*/
