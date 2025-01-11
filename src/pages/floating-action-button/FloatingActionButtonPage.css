@@ -1,0 +1,18 @@
+.FloatingActionButtonPage {
+  height: 100vh;
+  width: 100vw;
+  background: #698662;
+
+  & .cover {
+    height: 40vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & .FloatingActionButton {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+  }
+}
