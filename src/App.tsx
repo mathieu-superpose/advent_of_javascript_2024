@@ -11,6 +11,7 @@ import SlugifyTitlePage from "./pages/slugify-title/SlugifyTitlePage.tsx"
 import TagInputFieldPage from "./pages/tag-input-field/TagInputFieldPage.tsx"
 import DigitalClockPage from "./pages/digital-clock/DigitalClockPage.tsx"
 import FloatingActionButtonPage from "./pages/floating-action-button/FloatingActionButtonPage.tsx"
+import NinjaQuotePage from "./pages/ninja-quote/NinjaQuotePage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -36,6 +37,7 @@ const App = () => {
           path="/floating-action-button"
           element={<FloatingActionButtonPage />}
         />
+        <Route path="ninja-quote" element={<NinjaQuotePage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
