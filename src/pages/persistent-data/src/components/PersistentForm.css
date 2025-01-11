@@ -1,0 +1,18 @@
+.PersistentForm {
+  width: min(400px, 90vw);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  & .full-name,
+  & .email,
+  & .favorite-reindeer,
+  & .checkboxes {
+    margin-bottom: 10px;
+  }
+
+  & .checkboxes {
+    display: flex;
+    flex-direction: column;
+  }
+}

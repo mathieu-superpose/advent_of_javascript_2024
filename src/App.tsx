@@ -9,6 +9,7 @@ import CharacterCounterPage from "./pages/character-counter/CharacterCounterPage
 import CopyToClipboardPage from "./pages/copy-to-clipboard/CopyToClipboardPage.tsx"
 import SlugifyTitlePage from "./pages/slugify-title/SlugifyTitlePage.tsx"
 import TagInputFieldPage from "./pages/tag-input-field/TagInputFieldPage.tsx"
+import PersistentDataPage from "./pages/persistent-data/PersistentDataPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/copy-to-clipboard" element={<CopyToClipboardPage />} />
         <Route path="/slugify-title" element={<SlugifyTitlePage />} />
         <Route path="/tag-input-field" element={<TagInputFieldPage />} />
+        <Route path="/persistent-data" element={<PersistentDataPage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
