@@ -1,0 +1,18 @@
+Font: Inter - https://fonts.google.com/specimen/Inter
+
+Temperature inside the dial: 65px / Bold
+Temperature around the dial: 16px / Bold
+Button Text: 16px / Bold
+
+Color stops on the outer ring gradient: 
+- 0% Purple: #7E0481
+- 25% Blue: #0009FF
+- 50% Purple: #7E0481
+- 75% Red: #FF0000
+- 100% Purple: #7E0481
+
+Color stops on the inner ring gradient: 
+- #E1E4FD light
+- #B8BAF9 dark
+
+Dial: 6px black stroke / #E0E3FD fill
