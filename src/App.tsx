@@ -13,6 +13,7 @@ import PersistentDataPage from "./pages/persistent-data/PersistentDataPage.tsx"
 import DigitalClockPage from "./pages/digital-clock/DigitalClockPage.tsx"
 import FloatingActionButtonPage from "./pages/floating-action-button/FloatingActionButtonPage.tsx"
 import NinjaQuotePage from "./pages/ninja-quote/NinjaQuotePage.tsx"
+import TemperatureConverterPage from "./pages/temperature-converter/TemperatureConverterPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -40,6 +41,10 @@ const App = () => {
           element={<FloatingActionButtonPage />}
         />
         <Route path="ninja-quote" element={<NinjaQuotePage />} />
+        <Route
+          path="temperature-converter"
+          element={<TemperatureConverterPage />}
+        />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
