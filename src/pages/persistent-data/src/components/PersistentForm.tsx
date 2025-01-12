@@ -4,6 +4,7 @@ import PersistentTextInput from "./PersistentTextInput"
 import PersistentEmailInput from "./PersistentEmailInput"
 import PersistentSelect from "./PersistentSelect"
 import PersistentCheckbox from "./PersistentCheckbox"
+import PersistentRadioInput from "./PersistentRadioInput"
 
 function PersistentForm() {
   function handleSubmit(e: React.FormEvent) {
@@ -46,15 +47,21 @@ function PersistentForm() {
 
   return (
     <form className="PersistentForm" onSubmit={handleSubmit}>
-      <label htmlFor="full-name">Full Name</label>
-      <PersistentTextInput name="full-name" initialValue="" />
+      <label className="top-label" htmlFor="full-name">
+        Full Name*
+      </label>
+      <PersistentTextInput name="full-name" initialValue="" required={true} />
 
-      <label htmlFor="email">Email</label>
-      <PersistentEmailInput name="email" initialValue="" />
+      <label className="top-label" htmlFor="email">
+        Email*
+      </label>
+      <PersistentEmailInput name="email" initialValue="" required={true} />
 
-      <label htmlFor="favourite-reindeer">Favourite Reindeer</label>
-      <PersistentSelect
-        name="favourite-reindeer"
+      <label className="top-label" htmlFor="favourite-reindeer">
+        Favourite Reindeer*
+      </label>
+      <PersistentRadioInput
+        name="favorite-reindeer"
         initialValue="dasher"
         options={[
           "Dasher",
@@ -67,9 +74,10 @@ function PersistentForm() {
           "Blitzen",
           "Rudolph",
         ]}
+        required={true}
       />
 
-      <label htmlFor="holiday-movies" className="checkboxes">
+      <label className="checkboxes top-label" htmlFor="holiday-movies">
         What holiday movie have you watched this year?
         <label htmlFor="elf">
           <PersistentCheckbox

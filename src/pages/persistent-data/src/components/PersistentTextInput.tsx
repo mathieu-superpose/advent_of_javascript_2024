@@ -3,9 +3,11 @@ import useSessionStorage from "../hooks/useSessionStorage"
 function PersistentTextInput({
   name,
   initialValue,
+  required = false,
 }: {
   name: string
   initialValue: string
+  required?: boolean
 }) {
   const { value, setValue } = useSessionStorage(name, initialValue)
 
@@ -14,6 +16,7 @@ function PersistentTextInput({
       className={name}
       name={name}
       type="text"
+      required={required}
       value={value}
       onChange={(e) => setValue(e.target.value)}
     />
