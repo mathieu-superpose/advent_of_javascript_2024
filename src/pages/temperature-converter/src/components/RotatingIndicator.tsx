@@ -7,7 +7,7 @@ import "./RotatingIndicator.css"
 import OuterRing from "./OuterRing"
 
 function RotatingIndicator() {
-  const indicatorRef = useRef<HTMLDivElement>(null)
+  const dialContainerRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const temperatureRef = useRef<HTMLInputElement>(null)
   const outerRingRef = useRef<HTMLImageElement>(null)
@@ -23,9 +23,12 @@ function RotatingIndicator() {
 
   const handleMouseMove = (e: MouseEvent) => {
     const container = containerRef.current
-    const indicator = indicatorRef.current
+    const dialContainer = dialContainerRef.current
 
-    if (!container || !indicator) return
+    if (!container || !dialContainer) return
+
+    // remove transition effect
+    dialContainer.style.transition = "none"
 
     // maintain the cursor as a pointer
     document.body.style.cursor = "pointer"
@@ -38,7 +41,7 @@ function RotatingIndicator() {
     const degrees = Math.floor((angle * 180) / Math.PI)
 
     // handleDegChange(degrees)
-    indicator.style.transform = `rotate(${degrees}deg)`
+    dialContainer.style.transform = `rotate(${degrees}deg)`
 
     // update the temperature input
     handleDegChange(degrees)
@@ -47,6 +50,15 @@ function RotatingIndicator() {
   const handleMouseUp = () => {
     // reset the cursor
     document.body.style.cursor = "auto"
+
+    const dialContainer = dialContainerRef.current
+
+    if (!dialContainer) {
+      return
+    }
+
+    // put back transition effect
+    dialContainer.style.transition = "transform 0.4s"
 
     document.removeEventListener("mousemove", handleMouseMove)
     document.removeEventListener("mouseup", handleMouseUp)
@@ -72,20 +84,24 @@ function RotatingIndicator() {
     if (/[^0123456789]/.test(temperature)) {
       return
     }
-
-    const indicator = indicatorRef.current
-    if (!indicator) {
+    if (!temperatureRef.current) {
       return
     }
 
-    const temp = Math.round(Number(temperature))
+    const dialContainer = dialContainerRef.current
+    if (!dialContainer) {
+      return
+    }
+
+    const temp = Math.floor(Number(temperature))
+
     const percentage = isFarhenheit ? (temp - 32) / 43 : temp / 40
 
     setPercent(Math.round(percentage * 100))
 
     const angle = Math.round(percentage * 360) - 90
 
-    indicator.style.transform = `rotate(${angle}deg)`
+    dialContainer.style.transform = `rotate(${angle}deg)`
   }
 
   const handleConvertion = () => {
@@ -110,7 +126,7 @@ function RotatingIndicator() {
         <OuterRing percentage={percent} />
       </div>
       <div className="inner-ring" />
-      <div className="dialContainer" ref={indicatorRef}>
+      <div className="dialContainer" ref={dialContainerRef}>
         <img
           src={dial}
           alt="Dial"
@@ -132,6 +148,8 @@ function RotatingIndicator() {
           type="number"
           onChange={(e) => handleTemperatureChange(e.target.value)}
           defaultValue="24"
+          min={isFarhenheit ? "32" : "0"}
+          max={isFarhenheit ? "100" : "40"}
         />
         <span className="degrees">{isFarhenheit ? "°F" : "°C"}</span>
       </div>

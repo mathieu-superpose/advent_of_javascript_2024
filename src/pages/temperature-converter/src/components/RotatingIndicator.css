@@ -79,6 +79,8 @@
     top: 45%;
     transform-origin: center right;
     transform: rotate(126deg);
+
+    transition: transform 0.4s;
   }
 
   & .dial {
