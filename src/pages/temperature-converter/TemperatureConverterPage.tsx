@@ -1,6 +1,6 @@
 import "./TemperatureConverterPage.css"
 
-import TemperatureConverter from "./src/components/TemperatureConverter"
+import RotatingIndicator from "./src/components/RotatingIndicator"
 
 import cover from "./src/img/cover.svg"
 
@@ -13,7 +13,7 @@ function TemperatureConverterPage() {
         alt="the advent of javascript cover day 13"
       />
 
-      <TemperatureConverter />
+      <RotatingIndicator />
     </div>
   )
 }

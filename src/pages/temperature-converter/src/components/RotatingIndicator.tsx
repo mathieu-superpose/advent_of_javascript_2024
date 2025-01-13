@@ -1,16 +1,19 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
-import outerRing from "../img/outer-ring.svg"
 import dial from "../img/dial.svg"
 
 import "./RotatingIndicator.css"
+
+import OuterRing from "./OuterRing"
 
 function RotatingIndicator() {
   const indicatorRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const temperatureRef = useRef<HTMLInputElement>(null)
+  const outerRingRef = useRef<HTMLImageElement>(null)
 
-  const [deg, setDeg] = useState(0)
+  const [percent, setPercent] = useState(60)
+  const [isFarhenheit, setIsFarhenheit] = useState(false)
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
@@ -32,10 +35,13 @@ function RotatingIndicator() {
     const centerY = rect.top + rect.height / 2
 
     const angle = Math.PI + Math.atan2(e.clientY - centerY, e.clientX - centerX)
-    const degrees = (angle * 180) / Math.PI
+    const degrees = Math.floor((angle * 180) / Math.PI)
 
+    // handleDegChange(degrees)
+    indicator.style.transform = `rotate(${degrees}deg)`
 
-    handleTemperatureChange(String(Math.round(degrees)))
+    // update the temperature input
+    handleDegChange(degrees)
   }
 
   const handleMouseUp = () => {
@@ -44,6 +50,22 @@ function RotatingIndicator() {
 
     document.removeEventListener("mousemove", handleMouseMove)
     document.removeEventListener("mouseup", handleMouseUp)
+  }
+
+  const handleDegChange = (deg: number) => {
+    if (!temperatureRef.current) {
+      return
+    }
+
+    const percentage = ((deg + 90) % 360) / 360
+
+    setPercent(Math.round(percentage * 100))
+
+    const temp = isFarhenheit
+      ? Math.round(32 + percentage * 43)
+      : Math.round(percentage * 40)
+
+    temperatureRef.current.value = temp.toString()
   }
 
   const handleTemperatureChange = (temperature: string) => {
@@ -57,19 +79,37 @@ function RotatingIndicator() {
     }
 
     const temp = Math.round(Number(temperature))
+    const percentage = isFarhenheit ? (temp - 32) / 43 : temp / 40
 
-    setDeg(temp)
-    indicator.style.transform = `rotate(${temp}deg)`
+    setPercent(Math.round(percentage * 100))
+
+    const angle = Math.round(percentage * 360) - 90
+
+    indicator.style.transform = `rotate(${angle}deg)`
+  }
+
+  const handleConvertion = () => {
+    if (!temperatureRef.current) {
+      return
+    }
+
+    const temperature = Number(temperatureRef.current.value)
+
+    const convertedTemperature = isFarhenheit
+      ? Math.round((temperature - 32) * (5 / 9))
+      : Math.round(temperature * (9 / 5) + 32)
+
+    temperatureRef.current.value = convertedTemperature.toString()
+
+    setIsFarhenheit(!isFarhenheit)
   }
 
   return (
     <div ref={containerRef} className="RotatingIndicator">
-      <img
-        src={outerRing}
-        alt="Outer ring"
-        draggable="false"
-        className="outer-ring"
-      />
+      <div ref={outerRingRef} className="outer-ring">
+        <OuterRing percentage={percent} />
+      </div>
+      <div className="inner-ring" />
       <div className="dialContainer" ref={indicatorRef}>
         <img
           src={dial}
@@ -80,13 +120,25 @@ function RotatingIndicator() {
         />
       </div>
 
-      <input
-        ref={temperatureRef}
-        className="temperature"
-        type="number"
-        onChange={(e) => handleTemperatureChange(e.target.value)}
-        value={deg}
-      />
+      <div className="top">{isFarhenheit ? "54°" : "20°"}</div>
+      <div className="right">{isFarhenheit ? "64°" : "30°"}</div>
+      <div className="bottom">{isFarhenheit ? "32°" : "0°"}</div>
+      <div className="left">{isFarhenheit ? "43°" : "10°"}</div>
+
+      <div className="temperatureContainer">
+        <input
+          ref={temperatureRef}
+          className="temperature"
+          type="number"
+          onChange={(e) => handleTemperatureChange(e.target.value)}
+          defaultValue="24"
+        />
+        <span className="degrees">{isFarhenheit ? "°F" : "°C"}</span>
+      </div>
+
+      <button className="temperatureConverterBtn" onClick={handleConvertion}>
+        {isFarhenheit ? "Convert to Celsius" : "Convert to Farhenheit"}
+      </button>
     </div>
   )
 }
