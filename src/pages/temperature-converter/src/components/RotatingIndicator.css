@@ -1,0 +1,32 @@
+.RotatingIndicator {
+  --container-size: min(50vh, 50vw);
+
+  height: var(--container-size);
+  width: var(--container-size);
+
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  & .outer-ring {
+    height: 100%;
+  }
+
+  & .dialContainer {
+    height: 10%;
+    width: 50%;
+    display: flex;
+    position: absolute;
+    top: 45%;
+    transform-origin: center right;
+  }
+
+  & .dial {
+    height: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
