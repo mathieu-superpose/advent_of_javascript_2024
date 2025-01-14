@@ -4,14 +4,16 @@ import "./GridGeneratorPage.css"
 
 function GridGeneratorPage() {
   const gridRef = useRef<HTMLDivElement>(null)
+  const colControlRef = useRef<HTMLUListElement>(null)
+  const rowControlRef = useRef<HTMLUListElement>(null)
 
   const [columns, setColumns] = useState(3)
   const [rows, setRows] = useState(3)
   const [columnGap, setColumnGap] = useState(0)
   const [rowGap, setRowGap] = useState(0)
 
-  const [rowDHeight, setRowWidth] = useState([...Array(12)].map((_r) => "1fr"))
-  const [colWidth, setColWidth] = useState([...Array(12)].map((_r) => "1fr"))
+  const [rowDHeight, setRowWidth] = useState([...Array(12)].map((_r) => 1))
+  const [colWidth, setColWidth] = useState([...Array(12)].map((_r) => 1))
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -35,21 +37,61 @@ function GridGeneratorPage() {
     setChange(num)
   }
 
-  useEffect(() => {
-    if (!gridRef?.current) {
+  const handleControlChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number,
+    initialArray: number[],
+    setChange: {
+      (value: SetStateAction<number[]>): void
+      (value: SetStateAction<number[]>): void
+    },
+    min = 1,
+    max = 12
+  ) => {
+    const value = e.target.value
+    if (/[^0-9]/.test(value)) {
+      return
+    }
+    if (value.length === 0) {
+      return
+    }
+    const num = parseInt(value)
+    if (num < min || num > max) {
       return
     }
 
-    const gridTemplateColumns = `repeat(${columns}, 1fr)`
+    const arr = initialArray.map((v, i) => (i === index ? num : v))
+
+    setChange(arr)
+  }
+
+  useEffect(() => {
+    if (
+      !gridRef?.current ||
+      !colControlRef?.current ||
+      !rowControlRef?.current
+    ) {
+      return
+    }
+
+    const gridTemplateColumns = colWidth
+      .slice(0, columns)
+      .map((v) => `${v}fr`)
+      .join(" ")
     gridRef.current.style.gridTemplateColumns = gridTemplateColumns
 
-    const gridTemplateRows = Array(rows).fill("1fr").join(" ")
+    const gridTemplateRows = rowDHeight
+      .slice(0, rows)
+      .map((v) => `${v}fr`)
+      .join(" ")
     gridRef.current.style.gridTemplateRows = gridTemplateRows
 
     gridRef.current.style.columnGap = `${columnGap}px`
-
     gridRef.current.style.rowGap = `${rowGap}px`
-  }, [rows, columns, columnGap, rowGap])
+
+    colControlRef.current.style.gridTemplateColumns = gridTemplateColumns
+    rowControlRef.current.style.gridTemplateRows = gridTemplateRows
+  }, [rows, columns, columnGap, rowGap, rowDHeight, colWidth])
 
   return (
     <div className="GridGeneratorPage">
@@ -111,6 +153,62 @@ function GridGeneratorPage() {
               <div key={index} className="Cell" />
             ))}
           <div className="Frame" />
+
+          <ul ref={colControlRef} className="ColControl">
+            {Array(columns)
+              .fill(null)
+              .map((_, index) => (
+                <li className="controlContainer" key={`colControl${index}`}>
+                  <div className="Control">
+                    <input
+                      type="number"
+                      min={1}
+                      max={12}
+                      defaultValue={1}
+                      onChange={(e) =>
+                        handleControlChange(
+                          e,
+                          index,
+                          colWidth,
+                          setColWidth,
+                          1,
+                          12
+                        )
+                      }
+                    />
+                    <span>fr</span>
+                  </div>
+                </li>
+              ))}
+          </ul>
+
+          <ul ref={rowControlRef} className="RowControl">
+            {Array(rows)
+              .fill(null)
+              .map((_, index) => (
+                <li className="controlContainer" key={`rowControl${index}`}>
+                  <div className="Control">
+                    <input
+                      type="number"
+                      min={1}
+                      max={12}
+                      defaultValue={1}
+                      onChange={(e) =>
+                        handleControlChange(
+                          e,
+                          index,
+                          rowDHeight,
+                          setRowWidth,
+                          1,
+                          12
+                        )
+                      }
+                    />
+                    <span>fr</span>
+                  </div>
+                </li>
+              ))}
+          </ul>
         </div>
       </div>
     </div>
