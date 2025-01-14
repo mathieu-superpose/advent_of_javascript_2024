@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+.GridGeneratorPage {
+  height: 100vh;
+  width: 100%;
+  background: #698662;
+
+  display: grid;
+  grid-template-columns: 3fr 8fr;
+
+  font-family: "Roboto Mono", serif;
+
+  & .Sidebar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #1d1d1d;
+    padding: 60px 30px;
+
+    & h1 {
+      color: #eaff00;
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 50px;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    & ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0;
+      & li {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        & label {
+          & span {
+            color: #797979;
+          }
+        }
+        & input {
+          background: #000000;
+          color: white;
+          border: none;
+          padding: 10px;
+          width: 25%;
+
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+/* 
+Roboto Mono - https://fonts.google.com/specimen/Roboto+Mono
+
+Title - 44px
+Subheading (for CSS and HTML code): 32px / Bold
+Text - 16px
+
+Yellow - #EAFF00
+Main Background - #000000
+Sidebar Background - #1D1D1D
+Gray Text in Sidebar - #797979
+
+Sidebar Input Background - #000000
+Column Size Input Background - #2b2b2b
+
+Code Theme - Dracula Dark - https://draculatheme.com/
+Font Size: 16px / Line Height 44px / Medium
+- Green: #71EE77
+- Blue: #81C7DD
+- Purple: #A080DE
+- Pink: #EC77BA
+- Yellow: #F1F88A
+*/
