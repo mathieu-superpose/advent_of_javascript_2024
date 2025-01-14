@@ -1,6 +1,54 @@
 import { SetStateAction, useEffect, useRef, useState } from "react"
 
+import closeIcon from "./src/img/close.svg"
+import clipboard from "./src/img/clipboard.svg"
+
 import "./GridGeneratorPage.css"
+
+const getCssCode = (
+  gridTemplateColums = "repeat(3, 1fr)",
+  gridTemplateRows = "repeat(3, 1fr)",
+  gridColumnGap = "0px",
+  gridRowGap = "0px"
+) => `.parent {
+
+  display: grid;
+
+  grid-template-colums: ${gridTemplateColums};
+
+  grid-template-rows: ${gridTemplateRows};
+
+  grid-column-gap: ${gridColumnGap};
+
+  grid-row-gap: ${gridRowGap};
+}`
+
+const formatFractions = (fractions: string) => {
+  if (/ /.test(fractions) === false) {
+    return fractions
+  }
+
+  const fr = fractions.split(" ")
+
+  const formated = []
+
+  for (let i = 0; i < fr.length; i++) {
+    let j = i + 1
+
+    while (fr[i] === fr[j]) {
+      j += 1
+    }
+
+    if (j - i > 1) {
+      formated.push(`repeat(${j - i}, ${fr[i]})`)
+      i = j - 1
+    } else {
+      formated.push(fr[i])
+    }
+  }
+
+  return formated.join(" ")
+}
 
 function GridGeneratorPage() {
   const gridRef = useRef<HTMLDivElement>(null)
@@ -14,6 +62,30 @@ function GridGeneratorPage() {
 
   const [rowDHeight, setRowWidth] = useState([...Array(12)].map((_r) => 1))
   const [colWidth, setColWidth] = useState([...Array(12)].map((_r) => 1))
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [cssCode, setCssCode] = useState(getCssCode())
+
+  const [isCopied, setIsCopied] = useState(false)
+
+  const handleCopyToClipBoard = () => {
+    // copy cssCode to clipboard
+    navigator.clipboard.writeText(cssCode)
+    setIsCopied(true)
+  }
+
+  useEffect(() => {
+    // wait 5s until switch back to false
+    if (isCopied === false) {
+      return
+    }
+
+    const wait = setTimeout(() => {
+      setIsCopied(false)
+    }, 5000)
+
+    return () => clearTimeout(wait)
+  }, [isCopied])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -65,6 +137,16 @@ function GridGeneratorPage() {
     setChange(arr)
   }
 
+  const handleParentClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    e.stopPropagation()
+    // focus and select the whole input
+    const input = e.currentTarget.querySelector("input")
+    input?.focus()
+    input?.select()
+  }
+
   useEffect(() => {
     if (
       !gridRef?.current ||
@@ -74,16 +156,22 @@ function GridGeneratorPage() {
       return
     }
 
-    const gridTemplateColumns = colWidth
-      .slice(0, columns)
-      .map((v) => `${v}fr`)
-      .join(" ")
+    const gridTemplateColumns = formatFractions(
+      colWidth
+        .slice(0, columns)
+        .map((v) => `${v}fr`)
+        .join(" ")
+    )
+
     gridRef.current.style.gridTemplateColumns = gridTemplateColumns
 
-    const gridTemplateRows = rowDHeight
-      .slice(0, rows)
-      .map((v) => `${v}fr`)
-      .join(" ")
+    const gridTemplateRows = formatFractions(
+      rowDHeight
+        .slice(0, rows)
+        .map((v) => `${v}fr`)
+        .join(" ")
+    )
+
     gridRef.current.style.gridTemplateRows = gridTemplateRows
 
     gridRef.current.style.columnGap = `${columnGap}px`
@@ -91,6 +179,15 @@ function GridGeneratorPage() {
 
     colControlRef.current.style.gridTemplateColumns = gridTemplateColumns
     rowControlRef.current.style.gridTemplateRows = gridTemplateRows
+
+    setCssCode(
+      getCssCode(
+        gridTemplateColumns,
+        gridTemplateRows,
+        `${columnGap}px`,
+        `${rowGap}px`
+      )
+    )
   }, [rows, columns, columnGap, rowGap, rowDHeight, colWidth])
 
   return (
@@ -143,9 +240,31 @@ function GridGeneratorPage() {
             />
           </li>
         </ul>
+
+        <button className="getCodeBtn" onClick={() => setIsModalOpen(true)}>
+          Get Code
+        </button>
       </div>
 
       <div className="Playground">
+        <div className={isModalOpen ? "Modal open" : "Modal"}>
+          <button className="closeBtn" onClick={() => setIsModalOpen(false)}>
+            <img src={closeIcon} alt="close symbol" />
+          </button>
+          <div className="cssCode">
+            {cssCode.split("\n").map((v, i) => (
+              <p key={`css${i}`}>{v}</p>
+            ))}
+            <button
+              className={isCopied ? "copyBtn copied" : "copyBtn"}
+              onClick={handleCopyToClipBoard}
+            >
+              <img src={clipboard} alt={"clipboard icon"} />
+              {isCopied ? "Copied" : "Copy to Clipboard"}
+            </button>
+          </div>
+        </div>
+
         <div className="Grid" ref={gridRef}>
           {Array(columns * rows)
             .fill(null)
@@ -159,7 +278,10 @@ function GridGeneratorPage() {
               .fill(null)
               .map((_, index) => (
                 <li className="controlContainer" key={`colControl${index}`}>
-                  <div className="Control">
+                  <div
+                    className="Control"
+                    onClick={(e) => handleParentClick(e)}
+                  >
                     <input
                       type="number"
                       min={1}
@@ -187,7 +309,10 @@ function GridGeneratorPage() {
               .fill(null)
               .map((_, index) => (
                 <li className="controlContainer" key={`rowControl${index}`}>
-                  <div className="Control">
+                  <div
+                    className="Control"
+                    onClick={(e) => handleParentClick(e)}
+                  >
                     <input
                       type="number"
                       min={1}

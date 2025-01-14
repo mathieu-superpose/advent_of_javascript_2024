@@ -43,6 +43,7 @@
       flex-direction: column;
       gap: 10px;
       padding: 0;
+      margin-bottom: 50px;
       & li {
         width: 80%;
         display: flex;
@@ -56,11 +57,24 @@
           background: #000000;
           color: white;
           border: none;
+          border-radius: 10px;
           padding: 10px;
-          width: 25%;
+          width: 30%;
 
           text-align: center;
         }
+      }
+    }
+
+    & .getCodeBtn {
+      background: none;
+      border: 2px solid white;
+      border-radius: 10px;
+      padding: 10px;
+      color: #eaff00;
+
+      &:hover {
+        cursor: pointer;
       }
     }
   }
@@ -72,6 +86,98 @@
     display: flex;
     justify-content: right;
     align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    & .Modal {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: -100%;
+      z-index: 30;
+      background: #eaff00;
+      transition: transform 0.4s;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 120px 80px;
+
+      &.open {
+        transform: translateX(-100%);
+      }
+
+      & .closeBtn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        outline: none;
+        border: none;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      & .copyBtn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        width: 210px;
+        transition: scale 0.2s;
+
+        &.copied {
+          color: #008000;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background: rgb(241, 239, 239);
+        }
+        &:active {
+          scale: 0.98;
+        }
+      }
+
+      & .cssCode {
+        padding: 20px 30px;
+        background: #1d1d1d;
+        border-radius: 15px;
+        color: lightgrey;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        &:before {
+          content: "CSS";
+          font-size: 30px;
+          color: black;
+          position: absolute;
+          left: 0;
+          top: -50px;
+        }
+
+        & p:nth-of-type(1),
+        & p:nth-of-type(12) {
+          margin-left: 0px;
+        }
+
+        & p {
+          margin-left: 40px;
+        }
+      }
+    }
 
     & .Grid {
       height: min(80vh, 50vw);
@@ -111,6 +217,10 @@
             align-items: center;
             width: 55px;
 
+            &:hover {
+              cursor: pointer;
+            }
+
             /* Chrome, Safari, Edge, Opera */
             & input::-webkit-outer-spin-button,
             & input::-webkit-inner-spin-button {
@@ -140,6 +250,8 @@
               padding-right: 5px;
 
               font-size: 12px;
+
+              user-select: none;
             }
           }
         }
