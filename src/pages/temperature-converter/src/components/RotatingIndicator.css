@@ -1,0 +1,151 @@
+.RotatingIndicator {
+  --container-size: min(50vh, 50vw);
+
+  height: var(--container-size);
+  width: var(--container-size);
+
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  & .outer-ring {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: red;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0.25turn,
+      hsl(235, 87.5%, 93.73%),
+      hsl(235, 84.42%, 84.9%)
+    );
+    transform: rotate(45deg);
+  }
+
+  & .inner-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 80%;
+    background: red;
+    border-radius: 50%;
+    background: conic-gradient(from 0.5turn, #0099ff, #7e0481, #ff0000);
+  }
+
+  & .top,
+  & .bottom,
+  & .left,
+  & .right {
+    position: absolute;
+    color: black;
+    font-weight: 700;
+    font-size: min(1.5vw, 1.5vh);
+
+    --distance: calc(min(3vw, 3vh));
+  }
+
+  & .top {
+    top: calc(-1 * var(--distance));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & .bottom {
+    bottom: calc(-1 * var(--distance));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & .left {
+    top: 50%;
+    left: calc(-1 * var(--distance));
+    transform: translateY(-50%);
+  }
+
+  & .right {
+    top: 50%;
+    right: calc(-1 * var(--distance) - 5px);
+    transform: translateY(-50%);
+  }
+
+  & .dialContainer {
+    height: 10%;
+    width: 50%;
+    display: flex;
+    position: absolute;
+    top: 45%;
+    transform-origin: center right;
+    transform: rotate(126deg);
+
+    transition: transform 0.4s;
+  }
+
+  & .dial {
+    height: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  & input::-webkit-outer-spin-button,
+  & input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  & input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  & .temperatureContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 70%;
+    height: 70%;
+    background: white;
+    border-radius: 50%;
+  }
+
+  & .temperature {
+    text-align: right;
+    border: none;
+    outline: none;
+    background: none;
+    width: 40%;
+
+    text-decoration: underline dotted;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+  }
+
+  & .temperature,
+  & .degrees {
+    font-size: calc(min(7vw, 7vh));
+    color: black;
+  }
+
+  & .temperatureConverterBtn {
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 4px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
