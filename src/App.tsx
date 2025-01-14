@@ -15,6 +15,7 @@ import FloatingActionButtonPage from "./pages/floating-action-button/FloatingAct
 import NinjaQuotePage from "./pages/ninja-quote/NinjaQuotePage.tsx"
 import TemperatureConverterPage from "./pages/temperature-converter/TemperatureConverterPage.tsx"
 import ConditonalSelectionPage from "./pages/conditional-selection/ConditionalSelectionPage.tsx"
+import ResponsiveYoutubeEmbedPage from "./pages/reponsive-youtube-embed/ResponsiveYoutubeEmbedPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -49,6 +50,10 @@ const App = () => {
         <Route
           path="conditional-selection"
           element={<ConditonalSelectionPage />}
+        />
+        <Route
+          path="reponsive-youtube-embed"
+          element={<ResponsiveYoutubeEmbedPage />}
         />
 
         <Route path="*" element={<NoMatch />} />
