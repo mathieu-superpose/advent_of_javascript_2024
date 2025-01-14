@@ -64,28 +64,34 @@
       }
     }
   }
+
+  & .Playground {
+    background: #000000;
+    padding: 20px;
+
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    & .Grid {
+      height: min(80vh, 50vw);
+      aspect-ratio: 6 / 5;
+      display: grid;
+      position: relative;
+
+      & .Cell {
+        border: 2px solid #1d1d1d;
+        z-index: 10;
+        background-image: url("/img/grid-generator/lines.svg");
+      }
+
+      & .Frame {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border: 4px solid #eaff00;
+        z-index: 15;
+      }
+    }
+  }
 }
-
-/* 
-Roboto Mono - https://fonts.google.com/specimen/Roboto+Mono
-
-Title - 44px
-Subheading (for CSS and HTML code): 32px / Bold
-Text - 16px
-
-Yellow - #EAFF00
-Main Background - #000000
-Sidebar Background - #1D1D1D
-Gray Text in Sidebar - #797979
-
-Sidebar Input Background - #000000
-Column Size Input Background - #2b2b2b
-
-Code Theme - Dracula Dark - https://draculatheme.com/
-Font Size: 16px / Line Height 44px / Medium
-- Green: #71EE77
-- Blue: #81C7DD
-- Purple: #A080DE
-- Pink: #EC77BA
-- Yellow: #F1F88A
-*/
