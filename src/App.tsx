@@ -14,6 +14,7 @@ import DigitalClockPage from "./pages/digital-clock/DigitalClockPage.tsx"
 import FloatingActionButtonPage from "./pages/floating-action-button/FloatingActionButtonPage.tsx"
 import NinjaQuotePage from "./pages/ninja-quote/NinjaQuotePage.tsx"
 import TemperatureConverterPage from "./pages/temperature-converter/TemperatureConverterPage.tsx"
+import ConditonalSelectionPage from "./pages/conditional-selection/ConditionalSelectionPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -44,6 +45,10 @@ const App = () => {
         <Route
           path="temperature-converter"
           element={<TemperatureConverterPage />}
+        />
+        <Route
+          path="conditional-selection"
+          element={<ConditonalSelectionPage />}
         />
 
         <Route path="*" element={<NoMatch />} />

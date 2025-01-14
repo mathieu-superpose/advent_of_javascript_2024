@@ -1,0 +1,110 @@
+{
+  "men": {
+    "categories": {
+      "tops": {
+        "options": {
+          "t-shirts": {},
+          "button-downs": {},
+          "graphic-t-shirts": {},
+          "licensed-graphics": {},
+          "coats-jackets": {},
+          "sweaters": {},
+          "sweatshirts-hoodies": {},
+          "polos": {}
+        }
+      },
+      "bottoms": {
+        "options": {
+          "jeans": {},
+          "pants": {},
+          "sweatpants": {},
+          "pajama-bottoms": {},
+          "shorts": {},
+          "swimsuits": {}
+        }
+      },
+      "active": {
+        "options": {
+          "activewear-tops": {},
+          "activewear-bottoms": {},
+          "activewear-sets": {},
+          "activewear-jackets": {}
+        }
+      },
+      "accessories": {
+        "options": {
+          "socks-underwear": {},
+          "pajamas-loungewear": {},
+          "shoes": {},
+          "accessories": {}
+        }
+      }
+    }
+  },
+  "women": {
+    "categories": {
+      "pajamas": {},
+      "activewear": {},
+      "all-bottoms": {},
+      "jeans": {},
+      "pants": {},
+      "all-tops": {},
+      "sweaters-cardigans": {},
+      "t-shirts": {},
+      "sweatshirts-sweatpants": {},
+      "loungewear": {},
+      "coats-jackets": {},
+      "dresses-jumpsuits": {},
+      "puffer-jackets-vests": {},
+      "skirts": {},
+      "shirts-blouses": {},
+      "button-down-shirts": {},
+      "everyday-leggings": {},
+      "bras-underwear": {},
+      "shorts": {},
+      "swimsuits": {}
+    }
+  },
+  "boy": {
+    "categories": {
+      "new-arrivals": {},
+      "activewear": {},
+      "sweatshirts-sweatpants": {},
+      "pajamas": {},
+      "graphic-tees-t-shirts": {},
+      "polos": {},
+      "button-downs-flannels": {},
+      "sweaters": {},
+      "coats-jackets": {},
+      "pants": {},
+      "jeans": {},
+      "shorts": {},
+      "swimsuits": {},
+      "shoes": {},
+      "accessories": {},
+      "socks-underwear": {},
+      "multipacks": {}
+    }
+  },
+  "girl": {
+    "categories": {
+      "new-arrivals": {},
+      "activewear": {},
+      "sweatshirts-sweatpants": {},
+      "pajamas": {},
+      "graphic-tees-t-shirts": {},
+      "shirts-blouses": {},
+      "sweaters": {},
+      "coats-jackets": {},
+      "dresses-jumpsuits": {},
+      "swimsuits": {},
+      "shorts-skirts": {},
+      "jeans": {},
+      "leggings": {},
+      "pants": {},
+      "shoes": {},
+      "accessories": {},
+      "socks-underwear": {}
+    }
+  }
+}
