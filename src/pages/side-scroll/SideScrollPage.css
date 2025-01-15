@@ -1,0 +1,80 @@
+.SideScrollPage {
+  min-height: 100vh;
+  width: 100%;
+  background: #698662;
+
+  --sidewidth: 40%;
+
+  & .SideMenu {
+    width: var(--sidewidth);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    & .progress {
+      --height: 60vh;
+      height: 60%;
+      width: 10%;
+      position: absolute;
+      top: 20%;
+      right: 50%;
+
+      &:before {
+        content: "";
+        height: 40px;
+        width: 40px;
+        border-left: 20px solid yellow;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        position: absolute;
+        transform: translateY(
+          calc(var(--height) * var(--progress) / 10 - 100%)
+        );
+        transition: transform 0.4s;
+      }
+    }
+
+    & ul {
+      list-style: none;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 50%;
+
+      position: absolute;
+      top: 20%;
+      right: 0;
+
+      padding: 0;
+    }
+  }
+
+  & main {
+    margin-left: var(--sidewidth);
+    /* padding: 40px; */
+    display: flex;
+    flex-direction: column;
+
+    .cover {
+      height: 40vh;
+      align-self: center;
+    }
+
+    & section {
+      margin-bottom: 40px;
+      width: 500px;
+      align-self: center;
+
+      & h2 {
+        margin-bottom: 20px;
+      }
+      & p {
+        margin-bottom: 20px;
+        text-indent: 20px;
+        line-height: 2;
+      }
+    }
+  }
+}
