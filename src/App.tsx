@@ -18,6 +18,7 @@ import ConditonalSelectionPage from "./pages/conditional-selection/ConditionalSe
 import ResponsiveYoutubeEmbedPage from "./pages/reponsive-youtube-embed/ResponsiveYoutubeEmbedPage.tsx"
 import GridGeneratorPage from "./pages/grid-generator/GridGeneratorPage.tsx"
 import SideScrollPage from "./pages/side-scroll/SideScrollPage.tsx"
+import TogglePricingPage from "./pages/toggle-pricing/TogglePricingPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -59,6 +60,7 @@ const App = () => {
         />
         <Route path="grid-generator" element={<GridGeneratorPage />} />
         <Route path="side-scroll" element={<SideScrollPage />} />
+        <Route path="toggle-pricing" element={<TogglePricingPage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
