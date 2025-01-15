@@ -8,6 +8,39 @@ import "./SideScrollPage.css"
 function SideScrollPage() {
   const progressRef = useRef<HTMLDivElement>(null)
   const [sections, setSections] = useState<string[]>([])
+  const [pressed, setPressed] = useState(false)
+
+  useEffect(() => {
+    if (pressed) {
+      const wait = setTimeout(() => {
+        setPressed(false)
+      }, 1000)
+
+      return () => clearTimeout(wait)
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.id.split("-")[1])
+
+            document.documentElement.style.setProperty(
+              "--progress",
+              index.toString()
+            )
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    document.querySelectorAll("section").forEach((section) => {
+      observer.observe(section)
+    })
+
+    return () => observer.disconnect()
+  }, [pressed])
 
   useEffect(() => {
     fetch(data)
@@ -19,6 +52,7 @@ function SideScrollPage() {
   }, [])
 
   const handleSectionClick = (index: number) => {
+    setPressed(true)
     document.documentElement.style.setProperty(
       "--progress",
       (index + 1).toString()
