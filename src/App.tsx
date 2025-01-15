@@ -17,6 +17,7 @@ import TemperatureConverterPage from "./pages/temperature-converter/TemperatureC
 import ConditonalSelectionPage from "./pages/conditional-selection/ConditionalSelectionPage.tsx"
 import ResponsiveYoutubeEmbedPage from "./pages/reponsive-youtube-embed/ResponsiveYoutubeEmbedPage.tsx"
 import GridGeneratorPage from "./pages/grid-generator/GridGeneratorPage.tsx"
+import SideScrollPage from "./pages/side-scroll/SideScrollPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -57,6 +58,7 @@ const App = () => {
           element={<ResponsiveYoutubeEmbedPage />}
         />
         <Route path="grid-generator" element={<GridGeneratorPage />} />
+        <Route path="side-scroll" element={<SideScrollPage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
