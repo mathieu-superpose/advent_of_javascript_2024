@@ -20,6 +20,8 @@ import GridGeneratorPage from "./pages/grid-generator/GridGeneratorPage.tsx"
 import SideScrollPage from "./pages/side-scroll/SideScrollPage.tsx"
 import TogglePricingPage from "./pages/toggle-pricing/TogglePricingPage.tsx"
 
+import CalendarPickerPage from "./pages/calendar-picker/CalendarPickerPage.tsx"
+
 import NoMatch from "./pages/NoMatch"
 
 const App = () => {
@@ -61,6 +63,7 @@ const App = () => {
         <Route path="grid-generator" element={<GridGeneratorPage />} />
         <Route path="side-scroll" element={<SideScrollPage />} />
         <Route path="toggle-pricing" element={<TogglePricingPage />} />
+        <Route path="calendar-picker" element={<CalendarPickerPage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
