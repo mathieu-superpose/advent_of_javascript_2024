@@ -1,0 +1,20 @@
+.DragAndDropCardsPage {
+  min-height: 100vh;
+  width: 100%;
+  background: #698662;
+  font-family: "Inter", serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .cover {
+    height: 30vh;
+    margin-bottom: -100px;
+  }
+
+  & .DragAndDrop {
+    width: min(90vw, 900px);
+    margin-bottom: 50px;
+  }
+}

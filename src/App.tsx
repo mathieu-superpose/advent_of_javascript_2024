@@ -19,8 +19,8 @@ import ResponsiveYoutubeEmbedPage from "./pages/reponsive-youtube-embed/Responsi
 import GridGeneratorPage from "./pages/grid-generator/GridGeneratorPage.tsx"
 import SideScrollPage from "./pages/side-scroll/SideScrollPage.tsx"
 import TogglePricingPage from "./pages/toggle-pricing/TogglePricingPage.tsx"
-
 import CalendarPickerPage from "./pages/calendar-picker/CalendarPickerPage.tsx"
+import DragAndDropCardsPage from "./pages/drag-and-drop-cards/DragAndDropCardsPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -64,6 +64,7 @@ const App = () => {
         <Route path="side-scroll" element={<SideScrollPage />} />
         <Route path="toggle-pricing" element={<TogglePricingPage />} />
         <Route path="calendar-picker" element={<CalendarPickerPage />} />
+        <Route path="drag-and-drop-cards" element={<DragAndDropCardsPage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
