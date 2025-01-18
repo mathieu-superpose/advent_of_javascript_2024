@@ -21,6 +21,7 @@ import SideScrollPage from "./pages/side-scroll/SideScrollPage.tsx"
 import TogglePricingPage from "./pages/toggle-pricing/TogglePricingPage.tsx"
 import CalendarPickerPage from "./pages/calendar-picker/CalendarPickerPage.tsx"
 import DragAndDropCardsPage from "./pages/drag-and-drop-cards/DragAndDropCardsPage.tsx"
+import ExpenseTrackerPage from "./pages/expense-tracker/ExpenseTrackerPage.tsx"
 
 import NoMatch from "./pages/NoMatch"
 
@@ -65,6 +66,7 @@ const App = () => {
         <Route path="toggle-pricing" element={<TogglePricingPage />} />
         <Route path="calendar-picker" element={<CalendarPickerPage />} />
         <Route path="drag-and-drop-cards" element={<DragAndDropCardsPage />} />
+        <Route path="expense-tracker" element={<ExpenseTrackerPage />} />
 
         <Route path="*" element={<NoMatch />} />
       </Routes>
