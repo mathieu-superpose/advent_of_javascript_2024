@@ -1,22 +1,16 @@
 .BoxShadowGeneratorPage {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background: #698662;
-  position: relative;
   font-family: "Inter", serif;
 
-  & .cover {
-    height: 40vh;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  & .BoxShadowGenerator {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
+  & .cover {
+    height: 30vh;
+    margin-bottom: -10vh;
   }
 }
