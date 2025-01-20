@@ -1,3 +1,74 @@
 .Home {
   min-height: 100vh;
+  background: #cae3db;
+  background-image: url("/img/background.jpg");
+  background-size: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: Georgia, serif;
+
+  & main {
+    & .card-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      list-style: none;
+      width: min(700px, 90vw);
+
+      & .card-link {
+        background: #cae3db;
+        width: min(300px, 100%);
+        position: relative;
+        padding: 15px;
+        border: 1px solid black;
+        border-radius: 10px;
+        --border-distance: 7px;
+        z-index: 1;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: calc(-1 * var(--border-distance));
+          left: calc(-1 * var(--border-distance));
+          border: 3px solid black;
+          border-radius: 15px;
+          width: calc(100% + 2 * var(--border-distance));
+          height: calc(100% + 2 * var(--border-distance));
+          z-index: -1;
+        }
+
+        & h2 {
+          text-transform: uppercase;
+          font-style: italic;
+          font-size: 1.125rem;
+          line-height: 1.75rem;
+        }
+
+        & p {
+          font-size: 12px;
+          font-weight: 400;
+          color: black;
+        }
+      }
+    }
+  }
+
+  .cover {
+    height: 50vh;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    & .gifts {
+      width: min(150px, 20%);
+      margin-bottom: 5px;
+    }
+  }
 }
