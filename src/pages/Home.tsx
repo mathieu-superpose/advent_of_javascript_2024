@@ -45,9 +45,9 @@ function Home() {
           </li>
           <li className="card-link" key="custom-dropdown">
             <Card
-              link="/password-input"
-              title="Password Input"
-              description="ADD CUSTOMDROPDOWN"
+              link="/custom-dropdown"
+              title="Custom Dropdown"
+              description="Day #02: Custom dropdown menu"
             />
           </li>
           <li className="card-link" key="resizable-text-area">
