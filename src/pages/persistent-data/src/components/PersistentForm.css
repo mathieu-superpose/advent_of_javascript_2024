@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.PersistentForm {
+  width: min(400px, 90vw);
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+
+  background: #111;
+  font-family: "Inter", serif;
+  color: #fff;
+
+  & .full-name,
+  & .email,
+  & .favorite-reindeer,
+  & .checkboxes {
+    margin-bottom: 10px;
+  }
+
+  & .email,
+  & .full-name {
+    border: 2px solid #9a9a9a;
+    border-radius: 5px;
+    background: none;
+    color: #fff;
+    padding: 5px 10px;
+  }
+
+  & .favorite-reindeer {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0;
+
+    & input[type="radio"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #9a9a9a;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+
+      &:checked {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border: 6px solid #33ff01;
+          border-radius: 50%;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    & label {
+      margin-left: 5px;
+    }
+  }
+
+  & .checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    & input[type="checkbox"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      &::before {
+        content: "✔";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        background-color: none;
+        border: 2px solid #9a9a9a;
+        border-radius: 1px;
+      }
+
+      &:checked {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        &::before {
+          content: "✔";
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 20px;
+          height: 20px;
+          margin-right: 5px;
+          background-color: #33ff01;
+          border: 2px solid #33ff01;
+          border-radius: 1px;
+        }
+      }
+    }
+  }
+
+  & .top-label {
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  & .submit {
+    background-color: #33ff01;
+    color: #111;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px 0;
+  }
+}

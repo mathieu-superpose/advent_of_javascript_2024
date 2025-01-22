@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+
+.NinjaQuote {
+  height: 300px;
+  aspect-ratio: 4/3;
+
+  & .paper-texture {
+    height: 100%;
+  }
+
+  & .quote {
+    width: 80%;
+    height: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+
+    & .quotation-mark {
+      height: 30px;
+
+      & path {
+        fill: #A07C5B;
+      }
+    }
+
+    & p {
+      font-size: 16px;
+      font-family: "DM Serif Display", serif;
+      line-height: 1.7;
+      font-weight: 400;
+      font-style: normal;
+      color: #4B4035;
+    }
+  }
+}

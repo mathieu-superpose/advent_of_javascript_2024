@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
+
+.DigitalClock {
+  font-family: "Krona One", serif;
+  font-size: 7px;
+  color: #111;
+}

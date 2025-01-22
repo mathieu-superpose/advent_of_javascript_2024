@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "title": "Create a gift list for family and friends",
+      "done": false,
+      "status": "To Do"
+    },
+    {
+      "id": "2",
+      "title": "Decorate the tree",
+      "done": false,
+      "status": "To Do"
+    },
+    {
+      "id": "3",
+      "title": "Plan Christmas dinner",
+      "done": false,
+      "status": "To Do"
+    },
+    {
+      "id": "4",
+      "title": "Replace burntout bulbs",
+      "done": false,
+      "status": "To Do"
+    },
+    {
+      "id": "5",
+      "title": "Update Holiday playlist",
+      "done": false,
+      "status": "To Do"
+    },
+    {
+      "id": "6",
+      "title": "Create a Holiday music playlist",
+      "done": false,
+      "status": "To Do"
+    },
+    {
+      "id": "7",
+      "title": "Make cookies for Santa",
+      "done": false,
+      "status": "To Do"
+    },
+    {
+      "id": "8",
+      "title": "Plan Holiday activities",
+      "done": true,
+      "status": "In Progress"
+    },
+    {
+      "id": "9",
+      "title": "Get all wrapping supplies",
+      "done": true,
+      "status": "Done"
+    },
+    {
+      "id": "10",
+      "title": "Deep clean the house",
+      "done": true,
+      "status": "Done"
+    }
+  ]
+}

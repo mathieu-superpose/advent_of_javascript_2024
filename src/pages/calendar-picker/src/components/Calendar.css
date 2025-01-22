@@ -1,0 +1,124 @@
+.Calendar {
+  display: none;
+  &.open {
+    display: block;
+  }
+  border: 4px solid var(--input-border-color);
+  border-radius: 10px;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  & header {
+    height: 20%;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--black-color);
+
+    background: var(--input-fill-color);
+
+    & h2 {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    & button {
+      border: none;
+      background: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  & main {
+    height: 80%;
+    background: var(--main-fill-color);
+
+    .days-indicator {
+      height: 10%;
+      background: var(--grey-color);
+      list-style: none;
+      padding: 0;
+
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1px;
+
+      & li {
+        background: var(--black-color);
+        color: var(--white-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+      }
+    }
+
+    & .days {
+      height: 90%;
+      list-style: none;
+      padding: 0;
+
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 1px;
+
+      background: var(--grey-color);
+
+      & li {
+        padding: 0;
+        margin: 0;
+
+        background: var(--input-fill-color);
+
+        & button {
+          border: none;
+          background: none;
+          height: 100%;
+          width: 100%;
+          font-weight: 700;
+
+          text-align: center;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        &.past {
+          /* color: var(--past-color); */
+          background: var(--past-fill-color);
+          & button {
+            color: var(--past-color);
+          }
+        }
+        &.today {
+          background: var(--today-color);
+          & button {
+            color: var(--black-color);
+          }
+        }
+        &.selected {
+          position: relative;
+          &:after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: none;
+            border: 4px solid var(--selected-color);
+          }
+        }
+      }
+    }
+  }
+}
