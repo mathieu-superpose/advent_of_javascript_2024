@@ -19,9 +19,10 @@
     transform: translateX(-50%);
   }
 
-  & .dropdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  & .CustomDropdown {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

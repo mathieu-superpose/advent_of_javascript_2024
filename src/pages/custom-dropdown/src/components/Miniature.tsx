@@ -6,7 +6,9 @@ const MiniatureContent = ({ movie }: { movie: IMovie }) => {
   }
   return (
     <>
-      <img className="poster" src={movie.Image} alt={movie["Image Alt"]} />
+      <div className="poster">
+        <img src={movie.Image} alt={movie["Image Alt"]} />
+      </div>
       <p className="title">{formatedTitle(movie.Title)}</p>
       <p className="year">{movie.Year}</p>
     </>

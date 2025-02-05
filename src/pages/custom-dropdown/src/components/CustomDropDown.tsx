@@ -51,7 +51,7 @@ function CustomDropdown() {
   }
 
   return (
-    <div className="CustomDropdown">
+    <div className="CustomDropdown" onClick={focusOnInput}>
       <input
         ref={inputRef}
         type="text"

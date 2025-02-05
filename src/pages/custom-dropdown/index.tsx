@@ -12,9 +12,7 @@ function CustomDropdownPage() {
         src={cover}
         alt="advent of javascript day 02 cover image"
       />
-      <div className="dropdown">
-        <CustomDropdown />
-      </div>
+      <CustomDropdown />
     </div>
   )
 }
