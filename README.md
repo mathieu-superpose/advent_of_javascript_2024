@@ -9,8 +9,8 @@ Every day until christmas, an email is sent providing user stories with three le
 
 Visit dedicated wiki pages:
 
-- [#01]()
-- [#02]()
+- [#01 Show/hide password input](https://github.com/mathieu-superpose/advent_of_javascript_2024/wiki/%2301-%E2%80%90-Show-hide-password-input)
+- [#02 ‐ Custom dropdown menu](https://github.com/mathieu-superpose/advent_of_javascript_2024/wiki/%2302-%E2%80%90-Custom-dropdown-menu)
 - [#03]()
 - [#04]()
 - [#05]()
