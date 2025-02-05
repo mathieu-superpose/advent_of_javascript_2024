@@ -1,0 +1,28 @@
+.CustomDropdownPage {
+  --bg-color: #698662;
+  --white-color: #f0f0f0;
+
+  height: 100vh;
+  width: 100vw;
+
+  background: var(--bg-color);
+  color: var(--white-color);
+  position: absolute;
+
+  .cover {
+    max-height: 50vh;
+    width: auto;
+
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  & .CustomDropdown {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

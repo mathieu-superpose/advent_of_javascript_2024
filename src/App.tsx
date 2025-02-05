@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom"
 
 import Home from "./pages/Home.tsx"
 import PasswordInput from "./pages/password-input/index.tsx"
-
+import CustomDropdownPage from "./pages/custom-dropdown/index.tsx"
 import ResizableTextAreaPage from "./pages/resizable-text-area/ResizableTextAreaPage.tsx"
 import ResizablePanelsPage from "./pages/resizable-panels/ResizablePanelsPage.tsx"
 import CharacterCounterPage from "./pages/character-counter/CharacterCounterPage.tsx"
@@ -30,10 +30,15 @@ const App = () => {
   return (
     <>
       <Routes>
+        {/* wrong route */}
+        <Route path="*" element={<NoMatch />} />
+        
+        {/* home */}
         <Route path="/" element={<Home />} />
-
+        
+        {/* pages */}
         <Route path="/password-input" element={<PasswordInput />} />
-
+        <Route path="/custom-dropdown" element={<CustomDropdownPage />} />
         <Route
           path="/resizable-text-area"
           element={<ResizableTextAreaPage />}
@@ -72,8 +77,6 @@ const App = () => {
           path="box-shadow-generator"
           element={<BoxShadowGeneratorPage />}
         />
-
-        <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
   )
